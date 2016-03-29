@@ -1,0 +1,10 @@
+{
+	"Mods" : {
+		"TestingMod" : {
+			"Name":"Testing Mod",
+			"Author":"Doge",
+			"Description":"A mod for testing",
+			"link":"http://github.com/link/to/file"
+		}
+	}
+}
