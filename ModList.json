@@ -1,10 +1,34 @@
 {
-	"Mods" : {
-		"TestingMod" : {
-			"Name":"Testing Mod",
-			"Author":"Doge",
-			"Description":"A mod for testing",
-			"Link":"http://github.com/link/to/file"
-		}
-	}
+    "Mods": [
+        {
+            "Name": "Disco Trucks",
+            "Author": "TesseractCat",
+            "Description": "Trucks change colors.",
+            "Link": "https://github.com/TesseractCat/clustertruck-mods/blob/master/DiscoTruck.dll?raw=true"
+        },
+        {
+            "Name": "Level Skip",
+            "Author": "TesseractCat",
+            "Description": "Press Y to skip level.",
+            "Link": "https://github.com/TesseractCat/clustertruck-mods/blob/master/LevelSkipMod.dll?raw=true"
+        },
+        {
+            "Name": "No Death on Ground",
+            "Author": "TesseractCat",
+            "Description": "The ground no longer kills you.",
+            "Link": "https://github.com/TesseractCat/clustertruck-mods/blob/master/NoDeathOnGround.dll?raw=true"
+        },
+        {
+            "Name": "No GUI",
+            "Author": "TesseractCat",
+            "Description": "Removes the GUI while playing.",
+            "Link": "https://github.com/TesseractCat/clustertruck-mods/blob/master/NoGUI.dll?raw=true"
+        },
+        {
+            "Name": "NoClip",
+            "Author": "",
+            "Description": "Fly around the map and through objects.",
+            "Link": "https://github.com/TesseractCat/clustertruck-mods/blob/master/Noclip.dll?raw=true"
+        }
+    ]
 }
