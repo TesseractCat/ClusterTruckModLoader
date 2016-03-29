@@ -1,0 +1,10 @@
+C:\Users\TesseractCat\Documents\Projects\TesseractModLoader\obj\Debug\TesseractModLoader.csprojResolveAssemblyReference.cache
+C:\Users\TesseractCat\Documents\Projects\TesseractModLoader\bin\Debug\TesseractModLoader.dll
+C:\Users\TesseractCat\Documents\Projects\TesseractModLoader\bin\Debug\TesseractModLoader.pdb
+C:\Users\TesseractCat\Documents\Projects\TesseractModLoader\bin\Debug\Assembly-CSharp.dll
+C:\Users\TesseractCat\Documents\Projects\TesseractModLoader\bin\Debug\UnityEngine.dll
+C:\Users\TesseractCat\Documents\Projects\TesseractModLoader\bin\Debug\UnityEngine.UI.dll
+C:\Users\TesseractCat\Documents\Projects\TesseractModLoader\bin\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\TesseractCat\Documents\Projects\TesseractModLoader\bin\Debug\Mono.Security.dll
+C:\Users\TesseractCat\Documents\Projects\TesseractModLoader\obj\Debug\TesseractModLoader.dll
+C:\Users\TesseractCat\Documents\Projects\TesseractModLoader\obj\Debug\TesseractModLoader.pdb

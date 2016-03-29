@@ -1,0 +1,115 @@
+this.hasStarted = true;
+
+this.soundPlayer.Swoosh();
+
+Type type = Assembly.LoadFrom("TesseractModLoader.dll").GetType("TesseractModLoader.modComponent");
+MethodInfo method = type.GetMethod("Start");
+method.Invoke(Activator.CreateInstance(type, null), null);
+
+modObject = new GameObject ();
+modObject.AddComponent<modComponent> ();
+GameObject.DontDestroyOnLoad (modObject);
+
+
+
+
+
+this.hasStarted = true;
+
+this.soundPlayer.Swoosh();
+
+Type modComponent = Assembly.LoadFrom("TesseractModLoader.dll").GetType("TesseractModLoader.modComponent");
+
+modObject = new GameObject ();
+modObject.AddComponent<modComponent> ();
+GameObject.DontDestroyOnLoad (modObject);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#region " Imports "
+using System;
+using System.Collections.Generic;
+using System.Text;
+using UnityEngine;
+using System.Reflection;
+#endregion 
+
+#region " Referenced assemblies "
+// - UnityEngine v0.0.0.0
+// - UnityEngine.UI v1.0.0.0
+// - mscorlib v2.0.5.0
+// - System.Core v2.0.5.0
+// - System v2.0.5.0
+// - Assembly-CSharp-firstpass v0.0.0.0
+// - mscorlib v2.0.0.0
+// - Assembly-CSharp v0.0.0.0
+// - Assembly-CSharp v0.0.0.0
+#endregion 
+
+class menuBar : MonoBehaviour
+{
+	// Limited support!
+	// You can only reference methods or fields defined in the class (not in ancestors classes)
+	// Fields and methods stubs are needed for compilation purposes only.
+	// Reflexil will automaticaly map current type, fields or methods to original references.
+	void Start()
+	{
+       Type type = Assembly.LoadFrom(Application.dataPath+"/Managed/TesseractModLoader.dll").GetTypes()[0];
+		MethodInfo method = type.GetMethod("Start");
+		method.Invoke(Activator.CreateInstance(type), null);
+	}
+	
+	#region " Methods stubs "
+	// Do not add or update any method. If compilation fails because of a method declaration, comment it
+	menuBar()
+	{
+	}
+	
+	void Update()
+	{
+	}
+	
+	void ChangeMenu(UnityEngine.GameObject go)
+	{
+	}
+	
+	void CloseGame()
+	{
+	}
+	
+	void enterGame()
+	{
+	}
+	
+	#endregion 
+	
+	#region " Fields stubs "
+	// Do not add or update any field. If compilation fails because of a field declaration, comment it
+	bool currentlyLeft;
+	float speed;
+	float pos;
+	UnityEngine.Transform leftMask;
+	UnityEngine.Transform rightMask;
+	UnityEngine.Transform bar;
+	UnityEngine.Transform startBar;
+	UnityEngine.GameObject firstObject;
+	UnityEngine.GameObject secondObject;
+	bool hasStarted;
+	UnityEngine.AudioSource au;
+	menuSound soundPlayer;
+	#endregion 
+
+}
