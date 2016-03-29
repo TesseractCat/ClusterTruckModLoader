@@ -1,2 +1,6 @@
 # Don't commit txt's
 *.txt
+
+# Build results
+Debug/
+Release/
