@@ -1,1 +1,2 @@
-CodeForTML.txt
+# Don't commit txt's
+*.txt
