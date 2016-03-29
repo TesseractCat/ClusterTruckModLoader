@@ -34,6 +34,7 @@ namespace TesseractModLoader.Window
 			GUILayout.Label ("Press Ctrl + I to toggle this menu");
 			GUILayout.Label ("Press Ctrl + O to toggle object explorer menu (dev)");
 			GUILayout.Label ("Press Ctrl + P to toggle debug viewer (dev)");
+			GUILayout.Label ("Press Ctrl + U to toggle online mod browser");
 			GUILayout.Label ("Click on a mod to toggle it on and off (Requires Game Restart)");
 			if (PlayerPrefs.GetInt ("Disabled") == 0) {
 				if (GUILayout.Button ("☑ | Enable / Disable Modloader (Requires Game Restart)")) {
