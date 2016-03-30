@@ -26,7 +26,7 @@
         },
         {
             "Name": "NoClip",
-            "Author": "",
+            "Author": "TesseractCat",
             "Description": "Fly around the map and through objects.",
             "Link": "https://github.com/TesseractCat/clustertruck-mods/blob/master/Noclip.dll?raw=true"
         }
