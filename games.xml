@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Mods>
+    <Mod>
+        <Name>Disco Trucks</Name>
+        <Author>TesseractCat</Author>
+        <Description>Trucks change colors.</Description>
+        <Link>https://github.com/TesseractCat/clustertruck-mods/blob/master/DiscoTruck.dll?raw=true</Link>
+    </Mod>
+    <Mod>
+        <Name>Level Skip</Name>
+        <Author>TesseractCat</Author>
+        <Description>Press Y to skip level.</Description>
+        <Link>https://github.com/TesseractCat/clustertruck-mods/blob/master/LevelSkipMod.dll?raw=true</Link>
+    </Mod>
+    <Mod>
+        <Name>No Death on Ground</Name>
+        <Author>TesseractCat</Author>
+        <Description>The ground no longer kills you.</Description>
+        <Link>https://github.com/TesseractCat/clustertruck-mods/blob/master/NoDeathOnGround.dll?raw=true</Link>
+    </Mod>
+    <Mod>
+        <Name>No GUI</Name>
+        <Author>TesseractCat</Author>
+        <Description>Removes the GUI while playing.</Description>
+        <Link>https://github.com/TesseractCat/clustertruck-mods/blob/master/NoGUI.dll?raw=true</Link>
+    </Mod>
+    <Mod>
+        <Name>NoClip</Name>
+        <Author>TesseractCat</Author>
+        <Description>Fly around the map and through objects.</Description>
+        <Link>https://github.com/TesseractCat/clustertruck-mods/blob/master/Noclip.dll?raw=true</Link>
+    </Mod>
+</Mods>
