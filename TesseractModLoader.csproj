@@ -47,8 +47,10 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:\My Games\Clustertruck\Clustertruck_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\ClusterTruck\Clustertruck_Data\Managed\UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="DebugWindow.cs" />
     <Compile Include="ConsoleWindow.cs" />
     <Compile Include="UI.cs" />
+    <Compile Include="OnlineWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

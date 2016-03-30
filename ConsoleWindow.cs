@@ -11,13 +11,8 @@ namespace TesseractModLoader.Window
 	{
 		public Rect consoleWindowRect = new Rect(20,20,375,600);
 		public bool consoleWindow = true;
-		public Dictionary<String, int> ModPrefs;
 
 		public void Start() {
-			UpdateModPrefs ();
-		}
-
-		public void UpdateModPrefs() {
 
 		}
 

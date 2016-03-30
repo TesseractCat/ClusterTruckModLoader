@@ -1,13 +1,14 @@
 ﻿<Properties StartupItem="TesseractModLoader.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ModLoader.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OnlineWindow.cs">
     <Files>
-      <File FileName="Main.cs" Line="18" Column="45" />
-      <File FileName="ModLoader.cs" Line="24" Column="2" />
-      <File FileName="ConsoleWindow.cs" Line="28" Column="5" />
-      <File FileName="DebugWindow.cs" Line="1" Column="1" />
+      <File FileName="Main.cs" Line="31" Column="2" />
+      <File FileName="ModLoader.cs" Line="1" Column="1" />
+      <File FileName="ConsoleWindow.cs" Line="19" Column="24" />
       <File FileName="ExplorerWindow.cs" Line="1" Column="1" />
+      <File FileName="DebugWindow.cs" Line="17" Column="50" />
       <File FileName="UI.cs" Line="1" Column="1" />
+      <File FileName="OnlineWindow.cs" Line="34" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
