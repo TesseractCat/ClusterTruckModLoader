@@ -1,0 +1,3 @@
+Disco Trucks|TesseractCat|Trucks change colors.|https://github.com/TesseractCat/clustertruck-mods/blob/master/DiscoTruck.dll?raw=true
+Level Skip|TesseractCat|Press Y to skip level.|https://github.com/TesseractCat/clustertruck-mods/blob/master/LevelSkipMod.dll?raw=true
+No Death on Ground|TesseractCat|The ground no longer kills you.|https://github.com/TesseractCat/clustertruck-mods/blob/master/NoDeathOnGround.dll?raw=true
