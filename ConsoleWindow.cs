@@ -25,12 +25,16 @@ namespace TesseractModLoader.Window
 
 		public void ConsoleWindow(int windowID) {
 
-			GUILayout.Label ("Tesseract Mod Loader v0.5 Enabled");
+			GUILayout.Label ("Tesseract Mod Loader v0.6 Enabled");
 			GUILayout.Label ("Press Ctrl + I to toggle this menu");
 			GUILayout.Label ("Press Ctrl + O to toggle object explorer menu (dev)");
 			GUILayout.Label ("Press Ctrl + P to toggle debug viewer (dev)");
 			GUILayout.Label ("Press Ctrl + U to toggle online mod browser");
 			GUILayout.Label ("Click on a mod to toggle it on and off (Requires Game Restart)");
+            if (GUILayout.Button("Open mod folder"))
+            {
+                System.Diagnostics.Process.Start("explorer.exe", "/root,"+(Application.dataPath + "/Managed/Mods/").Replace('/','\\'));
+            }
 			if (PlayerPrefs.GetInt ("Disabled") == 0) {
 				if (GUILayout.Button ("☑ | Enable / Disable Modloader (Requires Game Restart)")) {
 					PlayerPrefs.SetInt ("Disabled", 1);

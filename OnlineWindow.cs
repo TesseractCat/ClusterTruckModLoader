@@ -13,28 +13,26 @@ namespace TesseractModLoader.Window
         public string Author { get; set; }
         public string Description { get; set; }
         public string Link { get; set; }
-        public bool Downloaded { get; set; } = false;
+        public string FileLocation { get; set; }
         
         public Mod(string name,string author,string description,string link) {
             this.Name = name;
             this.Author = author;
             this.Description = description;
             this.Link = link;
+            FileLocation = Path.GetFileName(link).Split('?')[0];
         }
     }
 
     public class Online : MonoBehaviour
     {
-        //TODO: Add some sort of way where the user can choose to replace file or not.
-        public bool REPLACE = true;
-
         public Rect onlineWindowRect = new Rect(20, 20, 375, 600);
         public bool onlineWindow = false;
         public List<Mod> Mods;
 
         //TODO: Add ability (maybe config) for user to define their own mod list so its not hardcoded.
         public string modListUrl = "https://raw.githubusercontent.com/TesseractCat/ClusterTruckModLoader/dev-noxml/ModList.txt";
-        public Vector2 DataBaseModListScrollBar = new Vector2();
+        public Vector2 modListScrollBar = new Vector2();
 
         public void Start()
         {
@@ -82,10 +80,9 @@ namespace TesseractModLoader.Window
 
         public void OnlineWindow(int windowID)
         {
-            DataBaseModListScrollBar = GUILayout.BeginScrollView(DataBaseModListScrollBar, false, true);
+            modListScrollBar = GUILayout.BeginScrollView(modListScrollBar, false, true);
             if (Mods != null)
             {
-
                 GUILayout.Label("Online mod database.");
                 foreach (Mod m in Mods)
                 {
@@ -94,39 +91,16 @@ namespace TesseractModLoader.Window
                     GUILayout.Label("Author: " + m.Author);
                     GUILayout.Label("Description: " + m.Description);
 
-                    //TODO: Make the layout better
-                    //TODO: Show mods on modlist before the restart occurs
-                    if (GUILayout.Button("Download (Requires Restart)") && !m.Downloaded)
+                    if (GUILayout.Button("Download"))
                     {
-                        m.Downloaded = true;
-                        Uri uri = new Uri(m.Link);
-                        string originalfilename = Path.GetFileNameWithoutExtension(uri.LocalPath);
-                        string filename = originalfilename;
-                        string extension = Path.GetExtension(uri.LocalPath);
-                        bool foundSame = false;
-                        if (REPLACE)
-                        {
-                            if (File.Exists(Application.dataPath + "/Managed/Mods/" + filename + "." + extension))
+                        if (!File.Exists(Application.dataPath + "/Managed/Mods/" + m.FileLocation)) {
+                            using (WebClient wc = new WebClient())
                             {
-                                UnityEngine.Debug.Log("Removing duplicate mod.");
-                                File.Delete(Application.dataPath + "/Managed/Mods/" + filename + "." + extension);
+                                UnityEngine.Debug.Log("Downloading mod " + m.Name);
+                                wc.DownloadFile(m.Link, Application.dataPath + "/Managed/Mods/" + m.FileLocation);
+                                UnityEngine.Debug.Log("Downloaded mod " + m.Name);
+                                ModLoader.LoadMod(Application.dataPath + "/Managed/Mods/" + m.FileLocation);
                             }
-                        }
-                        else
-                        {
-                            int change = 1;
-                            while (File.Exists(Application.dataPath + "/Managed/Mods/" + filename + "." + extension))
-                            {
-                                foundSame = true;
-                                filename += originalfilename + $"({change})";
-                                change++;
-                            }
-                        }
-                        using (WebClient wc = new WebClient())
-                        {
-                            UnityEngine.Debug.Log("Downloading mod " + m.Name);
-                            wc.DownloadFile(uri, Application.dataPath + "/Managed/Mods/" + filename + extension);
-                            UnityEngine.Debug.Log("Downloaded mod " + m.Name);
                         }
                     }
                 }
