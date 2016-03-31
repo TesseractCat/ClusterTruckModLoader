@@ -59,11 +59,16 @@ namespace TesseractModLoader.Window
                 data = wc.DownloadString(modListUrl);
             }
             Mods = new List<Mod>();
-            foreach (string line in new LineReader(() => new StringReader(text)))
+            using (StringReader reader = new StringReader(data))
             {
-               string[] Vals = line.Split("|");
-               Mods.Add(new Mod(Vals[0],Vals[1],Vals[2],Vals[3]));
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] Vals = line.Split('|');
+                    Mods.Add(new Mod(Vals[0], Vals[1], Vals[2], Vals[3]));
+                }
             }
+            
         }
 
         public void OnGUI()
