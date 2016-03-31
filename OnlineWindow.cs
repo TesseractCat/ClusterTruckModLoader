@@ -31,7 +31,7 @@ namespace TesseractModLoader.Window
         public List<Mod> Mods;
 
         //TODO: Add ability (maybe config) for user to define their own mod list so its not hardcoded.
-        public string modListUrl = "https://raw.githubusercontent.com/TesseractCat/ClusterTruckModLoader/dev-noxml/ModList.txt";
+        public string modListUrl = "https://raw.githubusercontent.com/TesseractCat/ClusterTruckModLoader/dev/ModList.txt";
         public Vector2 modListScrollBar = new Vector2();
 
         public void Start()
