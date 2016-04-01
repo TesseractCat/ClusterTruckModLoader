@@ -15,7 +15,7 @@ namespace TesseractModLoader.Window
 	{
 		public Rect consoleWindowRect = new Rect(20,20,375,600);
 		public bool consoleWindow = true;
-        public string updateUrl = "https://github.com/TesseractCat/ClusterTruckModLoader/raw/dev/Build/TesseractModLoader.dll";
+        public string updateUrl = "https://github.com/TesseractCat/ClusterTruckModLoader/raw/master/Build/TesseractModLoader.dll";
         public bool updateNeeded = false;
 
 		public void Start() {
