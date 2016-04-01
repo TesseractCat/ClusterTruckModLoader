@@ -1,9 +1,13 @@
 ﻿using System;
 using UnityEngine;
 using System.IO;
+using System.Net;
+using System.Net.Security;
 using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace TesseractModLoader.Window
 {
@@ -11,12 +15,36 @@ namespace TesseractModLoader.Window
 	{
 		public Rect consoleWindowRect = new Rect(20,20,375,600);
 		public bool consoleWindow = true;
+        public string updateUrl = "https://github.com/TesseractCat/ClusterTruckModLoader/raw/dev/Build/TesseractModLoader.dll";
+        public bool updateNeeded = false;
 
 		public void Start() {
-
+            ServicePointManager.ServerCertificateValidationCallback =
+                   new RemoteCertificateValidationCallback(
+                        delegate
+                        { return true; }
+                    );
+            using (WebClient wc = new WebClient())
+            {
+                var UpdateHash = Hash(wc.DownloadString(updateUrl));
+                var CurrentHash = Hash(File.ReadAllText((Application.dataPath + "/Managed/TesseractModLoader.dll").Replace("/","\\")));
+                UnityEngine.Debug.Log("Retrieved hashes: " + UpdateHash + " / " + CurrentHash);
+                if (UpdateHash != CurrentHash)
+                {
+                    updateNeeded = true;
+                }
+            }
 		}
 
-		public void OnGUI() {
+        public static string Hash(string stringToHash)
+        {
+            using (var sha1 = new SHA1Managed())
+            {
+                return BitConverter.ToString(sha1.ComputeHash(Encoding.UTF8.GetBytes(stringToHash)));
+            }
+        }
+
+        public void OnGUI() {
 			GUI.skin = TesseractModLoader.Window.UI.UISkin;
 			if (consoleWindow) {
 				consoleWindowRect = GUI.Window (0, consoleWindowRect, ConsoleWindow, "Console",GUI.skin.GetStyle("window"));
@@ -25,12 +53,25 @@ namespace TesseractModLoader.Window
 
 		public void ConsoleWindow(int windowID) {
 
-			GUILayout.Label ("Tesseract Mod Loader v0.6 Enabled");
+			GUILayout.Label ("Tesseract Mod Loader v0.7 Enabled");
 			GUILayout.Label ("Press Ctrl + I to toggle this menu");
 			GUILayout.Label ("Press Ctrl + O to toggle object explorer menu (dev)");
 			GUILayout.Label ("Press Ctrl + P to toggle debug viewer (dev)");
 			GUILayout.Label ("Press Ctrl + U to toggle online mod browser");
 			GUILayout.Label ("Click on a mod to toggle it on and off (Requires Game Restart)");
+            if (updateNeeded)
+            {
+                if (GUILayout.Button("Update Modloader (Restart Needed)"))
+                {
+                    updateNeeded = false;
+                    using (WebClient wc = new WebClient())
+                    {
+                        File.Delete("TesseractModLoader2.dll");
+                        File.Move(Application.dataPath + "/Managed/TesseractModLoader.dll", Application.dataPath + "/Managed/TesseractModLoader2.dll");
+                        wc.DownloadFile(updateUrl, Application.dataPath + "/Managed/TesseractModLoader.dll");
+                    }
+                }
+            }
             if (GUILayout.Button("Open mod folder"))
             {
                 System.Diagnostics.Process.Start("explorer.exe", "/root,"+(Application.dataPath + "/Managed/Mods/").Replace('/','\\'));

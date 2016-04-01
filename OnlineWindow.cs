@@ -31,26 +31,16 @@ namespace TesseractModLoader.Window
         public List<Mod> Mods;
 
         //TODO: Add ability (maybe config) for user to define their own mod list so its not hardcoded.
-        public string modListUrl = "https://raw.githubusercontent.com/TesseractCat/ClusterTruckModLoader/dev/ModList.txt";
+        public string modListUrl = "http://raw.githubusercontent.com/TesseractCat/ClusterTruckModLoader/dev/ModList.txt";
         public Vector2 modListScrollBar = new Vector2();
 
         public void Start()
         {
-            //Fails to pass certificates when downloading so I had to do this.
-            //TODO: Find and implement the correct way to do this
-            try
-            {
-                //Change SSL checks so that all checks pass
-                ServicePointManager.ServerCertificateValidationCallback =
+            ServicePointManager.ServerCertificateValidationCallback =
                    new RemoteCertificateValidationCallback(
                         delegate
                         { return true; }
                     );
-            }
-            catch (Exception ex)
-            {
-                UnityEngine.Debug.Log("Error disabling certificates.");
-            }
             string data;
             using (WebClient wc = new WebClient())
             {
