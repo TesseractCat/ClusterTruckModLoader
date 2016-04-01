@@ -19,24 +19,6 @@ namespace TesseractModLoader.Window
 		String currentLog = "";
 		public String consoleEntry;
 
-		string code = @"
-		   	using System;
-			using UnityEngine;
-
-		    namespace Runtime
-		    {
-		        public class Main : MonoBehaviour
-		        {
-		            public static void Start()
-		            {
-		            " +
-					"Debug.Log(\"Hello, world!\");"
-					+ @"
-		            }
-		        }
-		    }
-		";
-
 		void Start() {
 			Application.logMessageReceived += HandleLog;
 		}

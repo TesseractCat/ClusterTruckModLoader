@@ -21,6 +21,7 @@ namespace TesseractModLoader
 				modObject.AddComponent<TesseractModLoader.Window.Debug> ();
 				modObject.AddComponent<TesseractModLoader.Window.Explorer> ();
 				modObject.AddComponent<TesseractModLoader.Window.Console> ();
+				modObject.AddComponent<TesseractModLoader.Window.Online> ();
 				modObject.AddComponent<TesseractModLoader.Window.UI> ();
 				GameObject.DontDestroyOnLoad (modObject);
 				modObject.name = "Tesseract Mod Object";

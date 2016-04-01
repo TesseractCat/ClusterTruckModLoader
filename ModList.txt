@@ -1,0 +1,10 @@
+Disco Trucks|TesseractCat|Trucks change colors|https://github.com/TesseractCat/clustertruck-mods/blob/master/DiscoTruck.dll?raw=true
+Level Skip|TesseractCat|Press Y to skip level|https://github.com/TesseractCat/clustertruck-mods/blob/master/LevelSkipMod.dll?raw=true
+No Death on Ground|TesseractCat|The ground no longer kills you|https://github.com/TesseractCat/clustertruck-mods/blob/master/NoDeathOnGround.dll?raw=true
+No GUI|TesseractCat|Gets rid of GUI in bottom right and top of the screen|https://github.com/TesseractCat/clustertruck-mods/blob/master/NoGUI.dll?raw=true
+Noclip|TesseractCat|Allows you to fly around a level.|https://github.com/TesseractCat/clustertruck-mods/blob/master/Noclip.dll?raw=true
+Custom Music|TesseractCat|Put a music file titled "Music.ogg" in your mods folder for new music|https://github.com/TesseractCat/clustertruck-mods/blob/master/CustomMusic.dll?raw=true
+Custom Truck Models|TesseractCat|Put a model titled "TruckModel.obj" in your mods folder for a custom truck model that replaces the trailer|https://github.com/TesseractCat/clustertruck-mods/blob/master/CustomTruckModels.dll?raw=true
+Custom Truck Models (Only Model)|TesseractCat|Put a model titled "TruckModel.obj" in your mods folder for a custom truck model that replaces the entire truck|https://github.com/TesseractCat/clustertruck-mods/blob/master/CustomTruckModelsOnlyModel.dll?raw=true
+Custom Truck Textures|TesseractCat|Put a texture file titled "TruckTexture.png" in your mods folder for a custom truck texture|https://github.com/TesseractCat/clustertruck-mods/blob/master/CustomTruckTextures.dll?raw=true
+Endless Mode|TesseractCat|An "Endless" level, to play, click on the "Endless" button on the main screen|https://github.com/TesseractCat/clustertruck-mods/blob/master/EndlessMode.dll?raw=true
