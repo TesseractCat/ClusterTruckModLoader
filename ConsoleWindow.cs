@@ -17,6 +17,7 @@ namespace TesseractModLoader.Window
 		public bool consoleWindow = true;
         public string updateUrl = "https://github.com/TesseractCat/ClusterTruckModLoader/raw/dev/Build/TesseractModLoader.dll";
         public bool updateNeeded = false;
+        public Vector2 modListScroll = new Vector2();
 
 		public void Start() {
             ServicePointManager.ServerCertificateValidationCallback =
@@ -53,7 +54,7 @@ namespace TesseractModLoader.Window
 
 		public void ConsoleWindow(int windowID) {
 
-			GUILayout.Label ("Tesseract Mod Loader v0.7 Enabled");
+			GUILayout.Label ("Tesseract Mod Loader v0.7.5 Enabled");
 			GUILayout.Label ("Press Ctrl + I to toggle this menu");
 			GUILayout.Label ("Press Ctrl + O to toggle object explorer menu (dev)");
 			GUILayout.Label ("Press Ctrl + P to toggle debug viewer (dev)");
@@ -87,7 +88,7 @@ namespace TesseractModLoader.Window
 			}
 			GUILayout.Label ("---");
 			GUILayout.Label ("Loaded mods:");
-			GUILayout.BeginVertical ();
+            modListScroll = GUILayout.BeginScrollView(modListScroll);
 			foreach (String path in Directory.GetFiles(Application.dataPath+"/Managed/Mods/","*.dll")) {
 				if (PlayerPrefs.GetInt (Path.GetFileName (path)) == 0) {
 					if (GUILayout.Button ("☑ | " + Path.GetFileName (path))) {
@@ -100,7 +101,7 @@ namespace TesseractModLoader.Window
 					}
 				}
 			}
-			GUILayout.EndVertical ();
+            GUILayout.EndScrollView();
 
 			GUI.DragWindow ();
 		}
