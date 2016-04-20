@@ -68,6 +68,7 @@ namespace TesseractModLoader.Window
                     using (WebClient wc = new WebClient())
                     {
                         File.Delete("/Managed/TesseractModLoader2.dll");
+                        File.Delete("TesseractModLoader2.dll");
                         File.Move(Application.dataPath + "/Managed/TesseractModLoader.dll", Application.dataPath + "/Managed/TesseractModLoader2.dll");
                         wc.DownloadFile(updateUrl, Application.dataPath + "/Managed/TesseractModLoader.dll");
                     }
