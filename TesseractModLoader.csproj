@@ -10,6 +10,8 @@
     <ReleaseVersion>0.5</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <Description>A modloader for the game clustertruck</Description>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <RunCodeAnalysis>false</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -34,6 +37,7 @@
         <Command type="AfterBuild" command="D:\SteamLibrary\steamapps\common\ClusterTruck\Clustertruck.exe" />
       </CustomCommands>
     </CustomCommands>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -45,7 +49,9 @@
       <HintPath>D:\My Games\Clustertruck\Clustertruck_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>D:\SteamLibrary\steamapps\common\ClusterTruck\Clustertruck_Data\Managed\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -61,6 +67,9 @@
     <Compile Include="ConsoleWindow.cs" />
     <Compile Include="UI.cs" />
     <Compile Include="OnlineWindow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
