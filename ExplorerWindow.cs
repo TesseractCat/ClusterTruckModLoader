@@ -9,7 +9,7 @@ namespace TesseractModLoader.Window
 {
 	public class Explorer : MonoBehaviour
 	{
-		public Rect explorerWindowRect = new Rect(20,20,400,600);
+		public Rect explorerWindowRect = new Rect(20,20,800,600);
 		public bool explorerWindow = false;
 		public Vector2 explorerScrollBar = new Vector2 ();
 
@@ -38,28 +38,25 @@ namespace TesseractModLoader.Window
 		public void ExplorerWindow(int windowID) {
 			explorerScrollBar = GUILayout.BeginScrollView (explorerScrollBar);
 			foreach (Transform t in TList) {
-				//GUILayout.BeginHorizontal ();
-				//GUILayout.Label (t.name);
-				if (t.parent == null) {
-					if (GUILayout.Button (t.name)) {
-						foreach (Component c in t.GetComponents<Component>()) {
-							UnityEngine.Debug.Log (c.GetType ().Name);
-						}
-					}
-					foreach (Transform child in t.GetComponentsInChildren<Transform>()) {
-						GUILayout.BeginHorizontal ();
-						GUILayout.Label (" -> ");
-						if (GUILayout.Button (child.name)) {
-							foreach (Component c in child.GetComponents<Component>()) {
-								UnityEngine.Debug.Log (c.GetType ().Name);
-							}
-						}
-						GUILayout.EndHorizontal ();
-					}
-				}
+                GUILayout.BeginHorizontal();
+				foreach (Transform parent in t.gameObject.GetComponentsInParent<Transform>())
+                {
+                    if (parent != null)
+                    {
+                        GUILayout.Label(parent.name + " > ");
+                    }
+                }
 
-				//GUILayout.EndHorizontal ();
-			}
+                if (GUILayout.Button(t.name))
+                {
+                    foreach (Component c in t.GetComponents<Component>())
+                    {
+                        UnityEngine.Debug.Log(c.GetType().Name);
+                    }
+                }
+
+                GUILayout.EndHorizontal();
+            }
 			GUILayout.EndScrollView ();
 
 			GUI.DragWindow ();
@@ -71,11 +68,11 @@ namespace TesseractModLoader.Window
 			}
 
 			if (Input.GetKey (KeyCode.DownArrow)&&explorerWindow) {
-				explorerScrollBar.Set (explorerScrollBar.x, explorerScrollBar.y + 10);
+				explorerScrollBar.Set (explorerScrollBar.x, explorerScrollBar.y + 100);
 			}
 
 			if (Input.GetKey (KeyCode.UpArrow)&&explorerWindow) {
-				explorerScrollBar.Set (explorerScrollBar.x, explorerScrollBar.y - 10);
+				explorerScrollBar.Set (explorerScrollBar.x, explorerScrollBar.y - 100);
 			}
 		}
 	}

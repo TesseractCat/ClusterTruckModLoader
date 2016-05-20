@@ -7,12 +7,9 @@ namespace TesseractModLoader
 	{
 		GameObject modObject;
 
-		public Main()
-		{
-		}
-
 		public void Start()
 		{
+
 			if (!GameObject.Find ("Tesseract Mod Object")) {
 				modObject = new GameObject ();
 				if (PlayerPrefs.GetInt ("Disabled") == 0) {
@@ -24,8 +21,8 @@ namespace TesseractModLoader
 				modObject.AddComponent<TesseractModLoader.Window.Online> ();
 				modObject.AddComponent<TesseractModLoader.Window.UI> ();
 				GameObject.DontDestroyOnLoad (modObject);
-				modObject.name = "Tesseract Mod Object";
-			}
-		}
+                modObject.name = "Tesseract Mod Object";
+            }
+        }
 	}
 }
