@@ -16,7 +16,7 @@ namespace TesseractModLoader.Window
 		public List<Transform> TList = new List<Transform>();
 
 		public void Start() {
-			StartCoroutine (Refresh ());
+
 		}
 
 		public void OnGUI() {
@@ -26,16 +26,15 @@ namespace TesseractModLoader.Window
 			}
 		}
 
-		public IEnumerator Refresh() {
+		public void Refresh() {
 			TList = new List<Transform> ();
 			foreach (Transform t in FindObjectsOfType<Transform>()) {
 				TList.Add (t);
 			}
-			yield return new WaitForSeconds (5f);
-			StartCoroutine (Refresh ());
 		}
 
 		public void ExplorerWindow(int windowID) {
+            GUILayout.Label("Press Ctrl + R to refresh the object list");
 			explorerScrollBar = GUILayout.BeginScrollView (explorerScrollBar);
 			foreach (Transform t in TList) {
                 GUILayout.BeginHorizontal();
@@ -67,7 +66,12 @@ namespace TesseractModLoader.Window
 				explorerWindow = !explorerWindow;
 			}
 
-			if (Input.GetKey (KeyCode.DownArrow)&&explorerWindow) {
+            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.R) || Input.GetKey(KeyCode.RightControl) && Input.GetKeyDown(KeyCode.R))
+            {
+                Refresh();
+            }
+
+            if (Input.GetKey (KeyCode.DownArrow)&&explorerWindow) {
 				explorerScrollBar.Set (explorerScrollBar.x, explorerScrollBar.y + 100);
 			}
 

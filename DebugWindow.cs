@@ -12,22 +12,6 @@ namespace TesseractModLoader.Window
 		public Vector2 debugScrollBar = new Vector2 ();
 		List<String> Logs = new List<String>();
 		String currentLog = "";
-		public String consoleEntry = "";
-        public String consoleCode = @"
-        using System;
-        using UnityEngine;
-            
-        namespace Stuff
-        {                
-            public class IsCool
-            {                
-                public static void Main()
-                {
-                    INSERTCODEHERE
-                }
-            }
-        }
-        ";
 
         void Start() {
 			Application.logMessageReceived += HandleLog;
@@ -49,9 +33,6 @@ namespace TesseractModLoader.Window
 
 			GUILayout.EndScrollView ();
             
-            
-            consoleEntry = GUILayout.TextField(consoleEntry);
-
 			GUI.DragWindow ();
 		}
 
@@ -60,10 +41,6 @@ namespace TesseractModLoader.Window
 				debugWindow = !debugWindow;
 			}
 
-            /*if (Input.GetKeyDown(KeyCode.Return))
-            {
-                CompileLine();
-            }*/
 		}
 
 		public void HandleLog (String logString, String stackTrace, LogType logType) {
